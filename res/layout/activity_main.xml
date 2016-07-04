@@ -1,0 +1,67 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/color_background_gray">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+		    <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="2"
+                android:layout_marginTop="@dimen/com_dp_15"
+                android:text="@string/google"
+                android:textSize="@dimen/font_size_40"
+                android:textColor="@drawable/color_text_blue"
+                android:gravity="top|center_horizontal"/>		    
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/com_dp_40"
+            android:layout_marginLeft="@dimen/com_dp_20"
+            android:layout_marginRight="@dimen/com_dp_20"
+            android:background="@drawable/login_text_background"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/id_search_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/com_dp_35"
+                android:layout_marginLeft="@dimen/com_dp_90"
+                android:background="@drawable/color_background_white"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:hint="@string/search_content"
+                android:textSize="@dimen/font_size_40" />
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="@dimen/com_dp_80"
+                android:layout_height="@dimen/com_dp_35"
+                android:layout_marginRight="@dimen/com_dp_90"
+                android:gravity="center"
+                android:text="@string/btn_search"
+                android:textColor="@drawable/color_text_lightblack"
+                android:textSize="@dimen/font_size_40" />
+            
+        </LinearLayout>        
+
+    </FrameLayout>
+</LinearLayout>

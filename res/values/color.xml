@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="color_b">#44aaaaaa</color>
+	<color name="color_a">#00000000</color>
+	<color name="button_fore_color_white">#FFFFFF</color>
+	<color name="button_fore_color_red">#FF0000</color>
+	<color name="button_fore_color_red_notselected">#CC0033</color>
+	<color name="button_back_color_red">#FF0000</color>
+	<color name="button_back_color_red_clicked">#CC0033</color>
+	<color name="button_back_color_gray">#666666</color>
+	<color name="background_color_lightgray">#F2F2F2</color>
+	<color name="background_color_gray">#666666</color>
+	<color name="background_color_red">#FF0000</color>
+	<color name="background_color_white">#FFFFFF</color>
+    <color name="background_color_selected">#CC0033</color>
+	<color name="fore_color_white">#FFFFFF</color>
+    <color name="fore_color_red">#FF0000</color>
+    <color name="fore_color_gray">#666666</color>
+    <color name="background_color_dark">#ff000000</color>
+    
+    <!-- yjk start -->
+    
+    <!-- text  -->
+    <drawable name="color_text_lightblack">#666666</drawable>
+    <drawable name="color_text_gray">#a6a6a6</drawable>
+    <drawable name="color_text_gray_1">#aaaaaa</drawable>
+    <drawable name="color_text_dark">#474747</drawable>
+    <drawable name="color_text_dark_black">#333333</drawable>
+    <drawable name="color_text_lightblue">#51b0f9</drawable>
+    <!-- drug_list -->
+    <drawable name="color_text_black">#444444</drawable>
+    <!-- list, shop_ttl, tab_selected -->
+    <drawable name="color_text_darkblack">#333333</drawable>
+    <!-- ex_info -->
+    <drawable name="color_text_lightgray">#999999</drawable>
+    <!-- input(hint), tab, arrow -->
+    <!-- <drawable name="color_text_gray">#aaaaaa</drawable>-->
+    <!-- input -->
+    <drawable name="color_text_graybrown">#666666</drawable>
+    <!-- pro_info -->
+    <drawable name="color_text_brown">#8a5d23</drawable>
+    <!-- price -->
+    <drawable name="color_text_red">#f7474f</drawable>
+    <!-- title, mark -->
+    <drawable name="color_text_white">#ffffff</drawable>
+    <!-- bottom_icon_selected -->
+    <drawable name="color_text_blue">#2ca1f9</drawable>
+    <!-- price -->
+    <drawable name="color_text_orange">#f59834</drawable>
+    <drawable name="color_text_lightgraybrown">#9c9c9c</drawable>
+    
+        
+    <!-- cut_off -->    
+    <drawable name="color_line_gray">#c2c2c2</drawable>
+    <!-- tab_selected -->
+    <drawable name="color_line_blue">#2ca1f9</drawable>
+    <!-- map_info -->
+    <drawable name="color_line_lightred">#ff6262</drawable>
+    
+    
+    <!-- backgroud -->
+    <drawable name="color_background_darkgray">#f4f4f4</drawable>
+    <drawable name="color_background_white">#ffffff</drawable>
+    <drawable name="color_background_lightgray_1">#fbfbfb</drawable>
+    <drawable name="color_background_lightgray_2">#ececec</drawable>
+    <!-- mark -->
+    <drawable name="color_background_red">#f7474f</drawable>
+    <!-- button, title -->
+    <drawable name="color_background_blue">#2ca1f9</drawable>
+    <!-- bottom_icon -->
+    <drawable name="color_background_gray">#fafafa</drawable>
+    <!-- pro_info -->
+    <drawable name="color_background_yellow">#fef0be</drawable>
+    <drawable name="color_background_darkyellow">#ffefbe</drawable>
+    
+    <drawable name="color_background_lightgray">#999999</drawable>
+    
+    <drawable name="color_background_light_blue">#FFF3FEFF</drawable>
+    <drawable name="color_background_light_red">#FFFFF1F2</drawable>
+    <drawable name="color_background_cell_selected">#ff6bd697</drawable>
+    <drawable name="color_background_cell_selection">#b1dce2ff</drawable>
+    <drawable name="color_background_today">#faedda</drawable>
+    <drawable name="color_text_no_month">#c0c0c0</drawable>
+    <drawable name="color_text_text">#603b07</drawable>
+    <drawable name="color_text_to_day_text">#ffc2a53d</drawable>
+        
+    <!-- icon -->
+    <drawable name="color_icon_blue">#2ca1f9</drawable>
+    <!-- estimate -->
+    <drawable name="color_icon_yellow">#f6ab00</drawable>
+    <drawable name="color_icon_gray">#dddddd</drawable>
+    <!-- input -->
+    <drawable name="color_icon_lightgray">#aaaaaa</drawable>    
+    <!-- bottom_icon, set -->
+    <drawable name="color_icon_lightblack">#666666</drawable>
+        
+    <drawable name="color_tab_selected">#2da0f9</drawable>
+    <drawable name="color_tab_unselected">#666666</drawable>
+    
+    <drawable name="color_icon_orange">#ff9700</drawable>
+    <drawable name="color_icon_lightred">#ff6262</drawable>
+    <drawable name="color_icon_red">#e84e3d</drawable>
+    <drawable name="color_icon_jacinth">#fb4851</drawable>
+    <drawable name="color_icon_lightgreen">#6eba2c</drawable>
+    <drawable name="color_icon_green">#3845ba</drawable>
+    <drawable name="color_icon_darkgreen">#06c2ad</drawable>
+    <drawable name="color_icon_perple">#8566a9</drawable>
+    <drawable name="color_icon_validation">#eaeaea</drawable>
+
+    <!-- yjk end -->
+	
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<set xmlns:android="http://schemas.android.com/apk/res/android">  
+<!-- 定义从左向右进入的动画
+fromXDelta 属性为动画起始时 X坐标上的位置
+toXDelta   属性为动画结束时 X坐标上的位置
+fromYDelta 属性为动画起始时 Y坐标上的位置
+toYDelta   属性为动画结束时 Y坐标上的位置
+
+duration  属性为动画持续时间（毫秒）
+ -->  
+<translate  
+android:fromXDelta="-100%"  
+android:toXDelta="0"  
+android:duration="500"/>  
+</set>
