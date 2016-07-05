@@ -1,9 +1,8 @@
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/color_background_gray">
+    android:background="@drawable/color_background_gray"
+    android:orientation="vertical" >
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -14,28 +13,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-		    <TextView
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
-                android:layout_weight="2"
                 android:layout_marginTop="@dimen/com_dp_15"
+                android:layout_weight="2"
+                android:gravity="top|center_horizontal"
                 android:text="@string/google"
-                android:textSize="@dimen/font_size_40"
                 android:textColor="@drawable/color_text_blue"
-                android:gravity="top|center_horizontal"/>		    
+                android:textSize="@dimen/font_size_50" />
         </LinearLayout>
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="3">
+        android:layout_height="@dimen/com_dp_40"
+        android:layout_marginTop="@dimen/com_dp_20"
+        android:layout_weight="0.00" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/com_dp_40"
-            android:layout_marginLeft="@dimen/com_dp_20"
-            android:layout_marginRight="@dimen/com_dp_20"
+            android:layout_marginLeft="@dimen/com_dp_10"
+            android:layout_marginRight="@dimen/com_dp_10"
             android:background="@drawable/login_text_background"
             android:gravity="center"
             android:orientation="horizontal" >
@@ -47,8 +47,8 @@
                 android:layout_marginLeft="@dimen/com_dp_90"
                 android:background="@drawable/color_background_white"
                 android:gravity="center_vertical"
-                android:singleLine="true"
                 android:hint="@string/search_content"
+                android:singleLine="true"
                 android:textSize="@dimen/font_size_40" />
 
             <Button
@@ -60,8 +60,106 @@
                 android:text="@string/btn_search"
                 android:textColor="@drawable/color_text_lightblack"
                 android:textSize="@dimen/font_size_40" />
-            
-        </LinearLayout>        
-
+        </LinearLayout>
     </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/com_dp_15"
+        android:layout_marginLeft="@dimen/com_dp_10"
+        android:layout_marginRight="@dimen/com_dp_10"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/bt_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_dp_20"
+            android:layout_marginRight="@dimen/com_dp_20"
+            android:orientation="vertical"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ib_news"
+                android:layout_width="@dimen/com_dp_50"
+                android:layout_height="@dimen/com_dp_50"
+                android:src="@drawable/news"
+            	android:background="#00000000" />
+
+            <TextView
+                android:id="@+id/tv_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_display_news" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bt_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_dp_20"
+            android:layout_marginRight="@dimen/com_dp_20"
+            android:orientation="vertical"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ib"
+                android:layout_width="@dimen/com_dp_50"
+                android:layout_height="@dimen/com_dp_50"
+                android:src="@drawable/video" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_display_video" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bt_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_dp_20"
+            android:layout_marginRight="@dimen/com_dp_20"
+            android:orientation="vertical"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ib"
+                android:layout_width="@dimen/com_dp_50"
+                android:layout_height="@dimen/com_dp_50"
+                android:src="@drawable/url" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_display_url" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bt_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_dp_20"
+            android:layout_marginRight="@dimen/com_dp_20"
+            android:orientation="vertical"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ib"
+                android:layout_width="@dimen/com_dp_50"
+                android:layout_height="@dimen/com_dp_50"
+                android:src="@drawable/image" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_display_image" />
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

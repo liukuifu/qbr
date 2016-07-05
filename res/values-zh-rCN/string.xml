@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <string name="app_name">qbr</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="google">Google</string>
+    <string name="login_user_name">用户名：</string>
+    <string name="login_user_name_hint">系统分配的用户名</string>
+    <string name="show_msg_name">点击搜索</string>
+    <string name="btn_search">检索</string>
+    <string name="search_content">检索内容</string>
+    <string name="url">url</string>
+    <string name="back">后退</string>
+    <string name="forward">前进</string>
+    <string name="refresh">刷新</string>
+    <string name="home">首页</string>
+    <string name="btn_display_news">新闻</string>
+    <string name="btn_display_video">视频</string>
+    <string name="btn_display_url">网址</string>
+    <string name="btn_display_image">图片</string>
+    <string name="search_base_url">www.baidu.com/s?wd=</string>
+    <string name="news_base_url">news.baidu.com</string>    
+</resources>
