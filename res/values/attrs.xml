@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BannerImageViewPager">
+        <attr name="dotsBgAlpha" format="float" />
+        <attr name="dotsBlurImage" format="reference" />
+        <attr name="dotsFocusImage" format="reference" />
+        <attr name="dotsSpacing" format="dimension" />
+        <attr name="dotsViewHeight" format="dimension" />
+        <attr name="dotsBackground" format="reference|color" />
+        <attr name="autoChange" format="boolean" />
+        <attr name="changeInterval" format="integer" />
+        <attr name="android:scaleType" />
+        <attr name="android:gravity" />
+        <attr name="android:adjustViewBounds" />
+    </declare-styleable>
+
+</resources>

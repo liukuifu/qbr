@@ -20,4 +20,5 @@
     <string name="btn_display_image">图片</string>
     <string name="search_base_url">www.baidu.com/s?wd=</string>
     <string name="news_base_url">news.baidu.com</string>    
+    <string name="Real_time_hot_spot">实时热点</string>    
 </resources>

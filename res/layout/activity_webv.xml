@@ -26,7 +26,8 @@
             <Button
                 android:id="@+id/btn_search"
                 android:layout_width="@dimen/com_dp_80"
-                android:layout_height="@dimen/com_dp_35"
+                android:layout_height="@dimen/com_dp_40"
+        		android:layout_marginTop="@dimen/com_dp_2"
                 android:layout_marginRight="@dimen/com_dp_90"
                 android:gravity="center"
                 android:text="@string/btn_search"
