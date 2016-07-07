@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.co.id/#q=</string>
+    <string name="back">kembali</string>
+    <string name="forward">depan</string>
+    <string name="refresh">menyegarkan</string>
+    <string name="home">rumah</string>
+    <string name="btn_display_news">berita</string>
+    <string name="btn_display_video">video</string>
+    <string name="btn_display_url">url</string>
+    <string name="btn_display_image">gambar</string>
+    <string name="Real_time_hot_spot">Real time hot spot</string>
+</resources>
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <string name="search_base_url">www.google.com.il/#q=</string> 
+    <string name="back">غدير</string>
+    <string name="forward">إلى الأمام</string>
+    <string name="refresh">تحديث</string>
+    <string name="home">منزل</string>
+    <string name="btn_display_news">أخبار</string>
+    <string name="btn_display_video">فيديو</string>
+    <string name="btn_display_url">عناوين</string>
+    <string name="btn_display_image">صورة</string>
+    <string name="Real_time_hot_spot">البقع الساخنة في الوقت الحقيقي</string>
+</resources>

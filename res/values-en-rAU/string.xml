@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.com.au/#q=</string>
+    <string name="back">back</string>
+    <string name="forward">forward</string>
+    <string name="refresh">refresh</string>
+    <string name="home">home</string>
+    <string name="btn_display_news">news</string>
+    <string name="btn_display_video">video</string>
+    <string name="btn_display_url">url</string>
+    <string name="btn_display_image">image</string>
+    <string name="Real_time_hot_spot">Real time hot spot</string>
+</resources>

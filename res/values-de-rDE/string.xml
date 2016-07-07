@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.de/#q=</string>
+    <string name="back">Wink</string>
+    <string name="forward">vorwärts</string>
+    <string name="refresh">auffrischen</string>
+    <string name="home">Zuhause</string>
+    <string name="btn_display_news">Nachrichten</string>
+    <string name="btn_display_video">Video</string>
+    <string name="btn_display_url">URLs</string>
+    <string name="btn_display_image">Bild</string>
+    <string name="Real_time_hot_spot">Echtzeit -Hot-Spots</string>
+</resources>

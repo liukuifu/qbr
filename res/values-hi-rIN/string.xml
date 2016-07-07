@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.com.fj/#q=</string>
+    <string name="back">वापस</string>
+    <string name="forward">आगे</string>
+    <string name="refresh">ताज़ा करना</string>
+    <string name="home">घर</string>
+    <string name="btn_display_news">समाचार</string>
+    <string name="btn_display_video">वीडियो</string>
+    <string name="btn_display_url">यूआरएल</string>
+    <string name="btn_display_image">की छवि</string>
+    <string name="Real_time_hot_spot">वास्तविक समय गर्म स्थान</string>
+</resources>
+
+
+
+
+
+
+
+

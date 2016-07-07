@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.com.es/#q=</string>
+    <string name="back">arroyo</string>
+    <string name="forward">adelante</string>
+    <string name="refresh">refrescar</string>
+    <string name="home">casa</string>
+    <string name="btn_display_news">noticias</string>
+    <string name="btn_display_video">vídeo</string>
+    <string name="btn_display_url">URL</string>
+    <string name="btn_display_image">imagen</string>
+    <string name="Real_time_hot_spot">Puntos calientes en tiempo real</string>
+</resources>

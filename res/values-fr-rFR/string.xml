@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.fr/#q=</string>
+    <string name="back">ruisseau</string>
+    <string name="forward">avant</string>
+    <string name="refresh">rafraîchir</string>
+    <string name="home">maison</string>
+    <string name="btn_display_news">nouvelles</string>
+    <string name="btn_display_video">vidéo</string>
+    <string name="btn_display_url">URL</string>
+    <string name="btn_display_image">image</string>
+    <string name="Real_time_hot_spot">Points chauds en temps réel</string>
+</resources>
+
+
+
+
+
+
+
+

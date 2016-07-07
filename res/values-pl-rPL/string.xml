@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.pl/#q=</string>
+    <string name="back">z powrotem</string>
+    <string name="forward">naprzód</string>
+    <string name="refresh">odświeżania</string>
+    <string name="home">dom</string>
+    <string name="btn_display_news">aktualności</string>
+    <string name="btn_display_video">wideo</string>
+    <string name="btn_display_url">url</string>
+    <string name="btn_display_image">obraz</string>
+    <string name="Real_time_hot_spot">W czasie rzeczywistym hot spot</string>
+</resources>

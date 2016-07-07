@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.com.vn/#q=</string>
+    <string name="back">trở lại</string>
+    <string name="forward">phía trước</string>
+    <string name="refresh">làm mới</string>
+    <string name="home">nhà</string>
+    <string name="btn_display_news">tin tức</string>
+    <string name="btn_display_video">video</string>
+    <string name="btn_display_url">url</string>
+    <string name="btn_display_image">hình ảnh</string>
+    <string name="Real_time_hot_spot">Thời gian thực điểm nóng</string>
+</resources>

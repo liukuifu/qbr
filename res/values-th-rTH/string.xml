@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="search_base_url">www.google.co.th/#q=</string>
+    <string name="back">กลับ</string>
+    <string name="forward">ข้างหน้า</string>
+    <string name="refresh">รีเฟรช</string>
+    <string name="home">บ้าน</string>
+    <string name="btn_display_news">ข่าว</string>
+    <string name="btn_display_video">วีดีโอ</string>
+    <string name="btn_display_url">URL</string>
+    <string name="btn_display_image">ภาพ</string>
+    <string name="Real_time_hot_spot">เวลาจริงจุดร้อน</string>
+</resources>

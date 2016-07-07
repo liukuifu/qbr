@@ -18,7 +18,13 @@
     <color name="fore_color_red">#FF0000</color>
     <color name="fore_color_gray">#666666</color>
     <color name="background_color_dark">#ff000000</color>
-    
+    <color name="background_color_search_btn">#4D90FE</color>
+    <!-- backgroud -->
+    <drawable name="color_background_main">#f1f1f1</drawable>
+    <drawable name="color_background_darkgray">#f4f4f4</drawable>
+    <drawable name="color_background_white">#ffffff</drawable>
+    <drawable name="color_background_lightgray_1">#fbfbfb</drawable>
+    <drawable name="color_background_lightgray_2">#ececec</drawable>
     <!-- yjk start -->
     
     <!-- text  -->
@@ -59,11 +65,6 @@
     <drawable name="color_line_lightred">#ff6262</drawable>
     
     
-    <!-- backgroud -->
-    <drawable name="color_background_darkgray">#f4f4f4</drawable>
-    <drawable name="color_background_white">#ffffff</drawable>
-    <drawable name="color_background_lightgray_1">#fbfbfb</drawable>
-    <drawable name="color_background_lightgray_2">#ececec</drawable>
     <!-- mark -->
     <drawable name="color_background_red">#f7474f</drawable>
     <!-- button, title -->
