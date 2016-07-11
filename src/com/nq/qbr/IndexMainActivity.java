@@ -1,6 +1,7 @@
 package com.nq.qbr;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -25,6 +26,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.Menu;
 import android.view.MotionEvent;
@@ -47,8 +50,12 @@ import com.BeeFramework.model.BusinessResponse;
 import com.external.androidquery.callback.AjaxStatus;
 import com.nq.qbr.Banner.OnSingleTouchListener;
 import com.nq.qbr.R;
+import com.nq.qbr.adapter.UrlAdapter;
 import com.nq.qbr.utils.qbrUtils;
 import com.nq.qbr.utils.rootUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class IndexMainActivity extends Activity implements OnClickListener {
 	private EditText etSearchText;
@@ -60,48 +67,49 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 	private LinearLayout ll_video;
 	private LinearLayout ll_url;
 	private LinearLayout ll_image;
-	
-	private GridView gv;
-//	private String[] strHotSpot = { "Ñ§ÉúµÀÇ¸ÍÏºóÍÈ", "¶àÅ®ÔâÆÃ²»Ã÷ÒºÌå", "ÀîÒ×·åÏÖÉí¹ãÖİ",
-//			"Å®ÇòÃÔºÈ¿ŞÈıÀïÍÍ", "³ÂË¼³ÏÇàÉ¬¾ÉÕÕ", "¾ç°æÖÂÇà´º½«²¥", "Æû³µ×¹ºÓ¾È5ÌõÃü", "Ğ¡³µ×·×²±¼³Û³µ", };
-//	private String[] strHotSpotUrl = {
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E5%AD%A6%E7%94%9F%E9%81%93%E6%AD%89%E6%8B%96%E5%90%8E%E8%85%BF&rsv_idx=2",
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E5%A4%9A%E5%A5%B3%E9%81%AD%E6%B3%BC%E4%B8%8D%E6%98%8E%E6%B6%B2%E4%BD%93&rsv_idx=2",
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E6%9D%8E%E6%98%93%E5%B3%B0%E7%8E%B0%E8%BA%AB%E5%B9%BF%E5%B7%9E&rsv_idx=2",
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E5%A5%B3%E7%90%83%E8%BF%B7%E5%96%9D%E5%93%AD%E4%B8%89%E9%87%8C%E5%B1%AF&rsv_idx=2",
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E9%99%88%E6%80%9D%E8%AF%9A%E9%9D%92%E6%B6%A9%E6%97%A7%E7%85%A7&rsv_idx=2",
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E5%89%A7%E7%89%88%E8%87%B4%E9%9D%92%E6%98%A5%E5%B0%86%E6%92%AD&rsv_idx=2",
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E6%B1%BD%E8%BD%A6%E5%9D%A0%E6%B2%B3%E6%95%915%E6%9D%A1%E5%91%BD&rsv_idx=2",
-//			"www.baidu.com/s?cl=3&tn=baidutop10&fr=top1000&wd=%E5%B0%8F%E8%BD%A6%E8%BF%BD%E6%92%9E%E5%A5%94%E9%A9%B0%E8%BD%A6&rsv_idx=2", };
-//	
-	private String[] strHotSpot = { "", "", "",
-			"", "", "", "", "", };
-	private String[] strHotSpotUrl = {
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"", };
-	
-	private ArrayList<View> views;
 
+	private GridView gv;
+	private String[] strHotSpot = { "", "", "", "", "", "", "", "", };
+	private String[] strHotSpotUrl = { "", "", "", "", "", "", "", "", };
+
+	// private GridView gv_url;
+	//
+	// private String[] strUrlUrl = {
+	// "http://3g.163.com/touch/all?nav=1&version=v_standard",
+	// "http://info.3g.qq.com/g/",
+	// "https://m.taobao.com/",
+	// "http://sina.cn/",
+	// "https://m.baidu.com/",
+	// "http://m.sohu.com/",
+	// "http://i.ifeng.com/",
+	// "",
+	// "",
+	// "",
+	// "",
+	// "",
+	// "",
+	// "",
+	// "",
+	// "", };
+	private ArrayList<View> views;
+	private ArrayList<String> gUrl;
+	
+    private ImageLoader imageLoader = ImageLoader.getInstance();
+    public static DisplayImageOptions options;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		// ÓÃ»§Ãû
+		// å†…å®¹
 		etSearchText = (EditText) this.findViewById(R.id.id_search_text);
-		// ÃÜÂë
-		// etUserPwd = (EditText) this.findViewById(R.id.id_login_password);
-		// µÇÂ½°´Å¥
+
+		// æœç´¢æŒ‰é’®
 		btnSearch = (Button) this.findViewById(R.id.btn_search);
 
-		// Ìí¼Ó°´Å¥µÄÕìÌıÊÂ¼ş
+		// æ·»åŠ æŒ‰é’®çš„ä¾¦å¬äº‹ä»¶
 		btnSearch.setOnClickListener(this);
-		
+
 		ll_news = (LinearLayout) findViewById(R.id.bt_news);
 		ll_news.setClickable(true);
 		ll_news.setOnClickListener(ocl);
@@ -116,116 +124,119 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 		ll_url.setClickable(true);
 		ll_url.setOnClickListener(ocl);
 		ll_url.setOnTouchListener(otl);
-		
+
 		ll_image = (LinearLayout) findViewById(R.id.bt_image);
 		ll_image.setClickable(true);
 		ll_image.setOnClickListener(ocl);
 		ll_image.setOnTouchListener(otl);
-		
-		if (rootUtils.isDeviceRooted()) {
-			tst = Toast.makeText(this, "ÓĞrootÈ¨ÏŞ", Toast.LENGTH_SHORT);
-			tst.show();
-		} else {
-			tst = Toast.makeText(this, "Ã»ÓĞ»ñµÃrootÈ¨ÏŞ", Toast.LENGTH_SHORT);
-			tst.show();
-		}
-		
-//		new ReadHttpGet().execute("http://190.160.10.79:7890/handler1.ashx");
-		
-//		Date timestamp = Date.parse((new Date()).toString());
-		Date now = new Date(); 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");// HH:mm:ss");//¿ÉÒÔ·½±ãµØĞŞ¸ÄÈÕÆÚ¸ñÊ½
 
-		String timestamp = dateFormat.format(now); 
-		new ReadHttpGet().execute("http://www.aqovd.com/rss/rssnews.json?t="+timestamp);
-//		try {
-//			requestByGet();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		gv = (GridView) findViewById(R.id.gv_Real_time_hot_spot);
+		if (rootUtils.isDeviceRooted()) {
+			 tst = Toast.makeText(this, "æœ‰rootæƒé™", Toast.LENGTH_SHORT);
+			 tst.show();
+		} else {
+			 tst = Toast.makeText(this, "æ²¡æœ‰è·å¾—rootæƒé™", Toast.LENGTH_SHORT);
+			 tst.show();
+		}
+
+		// çƒ­ç‚¹è¯·æ±‚åœ°å€
+		Date now = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");// HH:mm:ss");//å¯ä»¥æ–¹ä¾¿åœ°ä¿®æ”¹æ—¥æœŸæ ¼å¼
+
+		String timestamp = dateFormat.format(now);
+		String urlBase = IndexMainActivity.this
+				.getString(R.string.url_base_url);
+		// è¯·æ±‚çƒ­ç‚¹
+		new ReadHttpGet().execute(urlBase + timestamp);
+
+		// gv_url = (GridView) findViewById(R.id.gv_url);
+		//
+		// // ä¸ºGridViewè®¾ç½®é€‚é…å™¨
+		// UrlAdapter ma = new UrlAdapter(this);
+		// // ma.strUrl = strUrl;
+		// gv_url.setAdapter(ma);
+		// // gv.setAdapter(new MyAdapter(this));
+		// // æ³¨å†Œç›‘å¬äº‹ä»¶
+		// gv_url.setOnItemClickListener(new OnItemClickListener() {
+		// public void onItemClick(AdapterView<?> parent, View v,
+		// int position, long id) {
+		// // Toast.makeText(IndexMainActivity.this, strHotSpotUrl[position],
+		// // Toast.LENGTH_SHORT).show();
+		// Intent intent = new Intent();
+		// intent.setClass(IndexMainActivity.this, WebBrowser.class);
+		// /* é€šè¿‡Bundleå¯¹è±¡å­˜å‚¨éœ€è¦ä¼ é€’çš„æ•°æ® */
+		// Bundle bundle = new Bundle();
+		// /* å­—ç¬¦ã€å­—ç¬¦ä¸²ã€å¸ƒå°”ã€å­—èŠ‚æ•°ç»„ã€æµ®ç‚¹æ•°ç­‰ç­‰ï¼Œéƒ½å¯ä»¥ä¼  */
+		// bundle.putString("flag", "UrlUrl");
+		// bundle.putString("searchContent", strUrlUrl[position]);
+		// intent.putExtras(bundle);
+		// startActivity(intent);
+		// }
+		// });
+
+		// ç»„è£…imageViewåˆ—è¡¨
+		// æŠŠè¦è½®æ’­çš„å›¾ç‰‡æ·»åŠ åˆ°åˆ—è¡¨é‡Œè°ƒç”¨setViewPagerViewsæ–¹æ³•æ·»åŠ åˆ°è‡ªå®šä¹‰çš„Viewpageré‡Œé¢å°±å¯ä»¥ä½¿ç”¨äº†
+//		views = new ArrayList<View>();
+//		gUrl = new ArrayList<String>();
+//		Banner pager = (Banner) findViewById(R.id.my_view_pager);
+//		ImageView image = new ImageView(this);
+//		image.setImageResource(R.drawable.image1);
+//		views.add(image);
+//		gUrl.add("11111");
+//		image = new ImageView(this);
+//		image.setImageResource(R.drawable.image2);
+//		views.add(image);
+//		gUrl.add("22222");
+//		image = new ImageView(this);
+//		image.setImageResource(R.drawable.image3);
+//		views.add(image);
+//		gUrl.add("333333");
+//		image = new ImageView(this);
+//		image.setImageResource(R.drawable.image4);
+//		views.add(image);
+//		gUrl.add("444444");
 //
-//		// ÎªGridViewÉèÖÃÊÊÅäÆ÷
-//		MyAdapter ma = new MyAdapter(this);
-//		ma.strHotSpot = strHotSpot;
-//		gv.setAdapter(ma);
-//		// gv.setAdapter(new MyAdapter(this));
-//		// ×¢²á¼àÌıÊÂ¼ş
-//		gv.setOnItemClickListener(new OnItemClickListener() {
-//			public void onItemClick(AdapterView<?> parent, View v,
-//					int position, long id) {
-//				Toast.makeText(IndexMainActivity.this, strHotSpotUrl[position],
-//						Toast.LENGTH_SHORT).show();
-//				Intent intent = new Intent();
-//				intent.setClass(IndexMainActivity.this, WebBrowser.class);
-//				/* Í¨¹ıBundle¶ÔÏó´æ´¢ĞèÒª´«µİµÄÊı¾İ */
-//				Bundle bundle = new Bundle();
-//				/* ×Ö·û¡¢×Ö·û´®¡¢²¼¶û¡¢×Ö½ÚÊı×é¡¢¸¡µãÊıµÈµÈ£¬¶¼¿ÉÒÔ´« */
-//				bundle.putString("flag", "HotSpot");
-//				bundle.putString("searchContent", strHotSpotUrl[position]);
-//				intent.putExtras(bundle);
-//				startActivity(intent);
+//		pager.setViewPagerViews(views);
+//		pager.setOnSingleTouchListener(new OnSingleTouchListener() {
+//
+//			@Override
+//			public void onSingleTouch(int position) {
+//
+//				Toast.makeText(IndexMainActivity.this,
+//						"å½“å‰ç‚¹å‡»" + gUrl.get(position), 0).show();
 //			}
 //		});
-
-		// ×é×°imageViewÁĞ±í
-		// °ÑÒªÂÖ²¥µÄÍ¼Æ¬Ìí¼Óµ½ÁĞ±íÀïµ÷ÓÃsetViewPagerViews·½·¨Ìí¼Óµ½×Ô¶¨ÒåµÄViewpagerÀïÃæ¾Í¿ÉÒÔÊ¹ÓÃÁË0‰80‰8
-		views = new ArrayList<View>();
-		Banner pager = (Banner) findViewById(R.id.my_view_pager);
-		ImageView image = new ImageView(this);
-		image.setImageResource(R.drawable.image1);
-		views.add(image);
-		image = new ImageView(this);
-		image.setImageResource(R.drawable.image2);
-		views.add(image);
-		image = new ImageView(this);
-		image.setImageResource(R.drawable.image3);
-		views.add(image);
-		image = new ImageView(this);
-		image.setImageResource(R.drawable.image4);
-		views.add(image);
-
-		pager.setViewPagerViews(views);
-		pager.setOnSingleTouchListener(new OnSingleTouchListener() {
-
-			@Override
-			public void onSingleTouch(int position) {
-				Toast.makeText(IndexMainActivity.this, "µ±Ç°µã»÷" + position, 0)
-						.show();
-			}
-		});
-
+		options = new DisplayImageOptions.Builder()
+		.showStubImage(R.drawable.default_image)			// è®¾ç½®å›¾ç‰‡ä¸‹è½½æœŸé—´æ˜¾ç¤ºçš„å›¾ç‰‡
+		.showImageForEmptyUri(R.drawable.default_image)	// è®¾ç½®å›¾ç‰‡Uriä¸ºç©ºæˆ–æ˜¯é”™è¯¯çš„æ—¶å€™æ˜¾ç¤ºçš„å›¾ç‰‡
+		.showImageOnFail(R.drawable.default_image)		// è®¾ç½®å›¾ç‰‡åŠ è½½æˆ–è§£ç è¿‡ç¨‹ä¸­å‘ç”Ÿé”™è¯¯æ˜¾ç¤ºçš„å›¾ç‰‡	
+		.cacheInMemory(true)						// è®¾ç½®ä¸‹è½½çš„å›¾ç‰‡æ˜¯å¦ç¼“å­˜åœ¨å†…å­˜ä¸­
+		.cacheOnDisc(true)							// è®¾ç½®ä¸‹è½½çš„å›¾ç‰‡æ˜¯å¦ç¼“å­˜åœ¨SDå¡ä¸­
+		//.displayer(new RoundedBitmapDisplayer(20))	// è®¾ç½®æˆåœ†è§’å›¾ç‰‡
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.build();
 	}
 
-	class ReadHttpGet extends AsyncTask<Object, Object, Object>
-	{
+	class ReadHttpGet extends AsyncTask<Object, Object, Object> {
 
 		@Override
 		protected Object doInBackground(Object... params) {
 
 			// TODO Auto-generated method stub
-			try
-			{
+			try {
 				HttpGet httpRequest = new HttpGet(params[0].toString());
-				HttpClient httpClient = new DefaultHttpClient();				
+				HttpClient httpClient = new DefaultHttpClient();
 				HttpResponse httpResponse = httpClient.execute(httpRequest);
-				if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK)
-				{
+				if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 
-					String strResult = EntityUtils.toString(httpResponse.getEntity(),"utf-8");
+					String strResult = EntityUtils.toString(
+							httpResponse.getEntity(), "utf-8");
 					return strResult;
+				} else {
+					return "è¯·æ±‚å‡ºé”™";
 				}
-				else
-				{
-					return "ÇëÇó³ö´í";
-				}
-			}
-			catch (ClientProtocolException e)
-			{
+			} catch (ClientProtocolException e) {
 				e.printStackTrace();
-			}
-			catch (IOException e) {
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -237,78 +248,120 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 			// TODO Auto-generated method stub
 			super.onCancelled(result);
 		}
-		
+
 		@Override
 		protected void onPostExecute(Object result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
-			try
-			{
-				// ´´½¨Ò»¸öJSON¶ÔÏó
-				
-				String e = result.toString();
-//				JSONObject jsonObject = new JSONObject(result.toString()).getJSONObject("news");
-				JSONObject jsonObject = new JSONObject(result.toString());
-				// »ñÈ¡Ä³¸ö¶ÔÏóµÄJSONÊı×é
-
-				JSONArray jsonArray = jsonObject.getJSONArray("news");
-//				JSONArray jsonArray = jsonObject.getJSONArray("news");
-
-//				Toast.makeText(getApplicationContext(), jsonArray.toString(),
-//						Toast.LENGTH_LONG).show();
-//				StringBuilder builder = new StringBuilder();
-				String tempTitle = "";
-				for (int i = 0; i < jsonArray.length(); i++)
-				{
-					// ĞÂ½¨Ò»¸öJSON¶ÔÏó£¬¸Ã¶ÔÏóÊÇÄ³¸öÊı×éÀïµÄÆäÖĞÒ»¸ö¶ÔÏó
-					JSONObject jsonObject2 = (JSONObject) jsonArray.opt(i);
-//					builder.append(jsonObject2.getString("id")); // »ñÈ¡Êı¾İ
-//					builder.append(jsonObject2.getString("title"));
-//					builder.append(jsonObject2.getString("name"));
-					if(i>7){
-						break;
+			try {
+				// åˆ›å»ºä¸€ä¸ªJSONå¯¹è±¡
+				if (result != null) {
+					String e = result.toString();
+					// JSONObject jsonObject = new
+					// JSONObject(result.toString()).getJSONObject("news");
+					JSONObject jsonObject = new JSONObject(result.toString());
+					JSONArray jsonArray = new JSONArray();
+					// è·å–æŸä¸ªå¯¹è±¡çš„JSONæ•°ç»„
+					if (jsonObject.has("news")){
+						jsonArray = jsonObject.getJSONArray("news");
+					} else if (jsonObject.has("news_en")){
+						jsonArray = jsonObject.getJSONArray("news_en");
+					}else if (jsonObject.has("news_ar")){
+						jsonArray = jsonObject.getJSONArray("news_ar");
+					}else if (jsonObject.has("news_in")){
+						jsonArray = jsonObject.getJSONArray("news_in");
 					}
-					tempTitle = jsonObject2.getString("title");
-					if (tempTitle.isEmpty()){
-						tempTitle = "";
-					}else {
-						if(tempTitle.length()>20){
-							tempTitle = tempTitle.substring(0, 20);
+					// JSONArray jsonArray = jsonObject.getJSONArray("news");
+
+					// Toast.makeText(getApplicationContext(),
+					// jsonArray.toString(),
+					// Toast.LENGTH_LONG).show();
+					// StringBuilder builder = new StringBuilder();
+					String tempTitle = "";
+
+					Banner pager = (Banner) findViewById(R.id.my_view_pager);
+					ImageView image = new ImageView(IndexMainActivity.this);
+					
+					views = new ArrayList<View>();
+					gUrl = new ArrayList<String>();
+					
+					for (int i = 0; i < jsonArray.length(); i++) {
+						// æ–°å»ºä¸€ä¸ªJSONå¯¹è±¡ï¼Œè¯¥å¯¹è±¡æ˜¯æŸä¸ªæ•°ç»„é‡Œçš„å…¶ä¸­ä¸€ä¸ªå¯¹è±¡
+						JSONObject jsonObject2 = (JSONObject) jsonArray.opt(i);
+						// builder.append(jsonObject2.getString("id")); // è·å–æ•°æ®
+						// builder.append(jsonObject2.getString("title"));
+						// builder.append(jsonObject2.getString("name"));
+						if (i > 7) {
+							break;
 						}
+						tempTitle = jsonObject2.getString("title");
+						if (tempTitle.isEmpty()) {
+							tempTitle = "";
+						} else {
+							if (tempTitle.length() > 20) {
+								tempTitle = tempTitle.substring(0, 20);
+							}
+						}
+						strHotSpot[i] = tempTitle;
+						String url = jsonObject2.getString("url");
+						strHotSpotUrl[i] = url;
+						if(i<3){
+							String img = "http:"+jsonObject2.getString("img");
+							
+					        //å¾—åˆ°å¯ç”¨çš„å›¾ç‰‡  
+//					        Bitmap bitmap = getHttpBitmap(img);  
+							image = new ImageView(IndexMainActivity.this);
+//							image.setImageBitmap(bitmap); 
+							// å‘å¤§ImageViewä¸­åŠ è½½å›¾ç‰‡
+							imageLoader.init(ImageLoaderConfiguration.createDefault(IndexMainActivity.this));
+							imageLoader.displayImage(img, image, IndexMainActivity.this.options);
+							views.add(image);
+							gUrl.add(url);
+						}
+						tempTitle = "";
 					}
-					strHotSpot[i] = tempTitle;
-					strHotSpotUrl[i] = jsonObject2.getString("url");
-					tempTitle = "";					
-				}
-				
-				gv = (GridView) findViewById(R.id.gv_Real_time_hot_spot);
+					
+					gv = (GridView) findViewById(R.id.gv_Real_time_hot_spot);
 
-				// ÎªGridViewÉèÖÃÊÊÅäÆ÷
-				MyAdapter ma = new MyAdapter(IndexMainActivity.this);
-				ma.strHotSpot = strHotSpot;
-				gv.setAdapter(ma);
-				// gv.setAdapter(new MyAdapter(this));
-				// ×¢²á¼àÌıÊÂ¼ş
-				gv.setOnItemClickListener(new OnItemClickListener() {
-					public void onItemClick(AdapterView<?> parent, View v,
-							int position, long id) {
-						Toast.makeText(IndexMainActivity.this, strHotSpotUrl[position],
-								Toast.LENGTH_SHORT).show();
-						Intent intent = new Intent();
-						intent.setClass(IndexMainActivity.this, WebBrowser.class);
-						/* Í¨¹ıBundle¶ÔÏó´æ´¢ĞèÒª´«µİµÄÊı¾İ */
-						Bundle bundle = new Bundle();
-						/* ×Ö·û¡¢×Ö·û´®¡¢²¼¶û¡¢×Ö½ÚÊı×é¡¢¸¡µãÊıµÈµÈ£¬¶¼¿ÉÒÔ´« */
-						bundle.putString("flag", "HotSpot");
-						bundle.putString("searchContent", strHotSpotUrl[position]);
-						intent.putExtras(bundle);
-						startActivity(intent);
-					}
-				});
-				
-//				myTextView.setText(builder.toString());
-			}
-			catch (JSONException e) {
+					// ä¸ºGridViewè®¾ç½®é€‚é…å™¨
+					MyAdapter ma = new MyAdapter(IndexMainActivity.this);
+					ma.strHotSpot = strHotSpot;
+					gv.setAdapter(ma);
+					// gv.setAdapter(new MyAdapter(this));
+					// æ³¨å†Œç›‘å¬äº‹ä»¶
+					gv.setOnItemClickListener(new OnItemClickListener() {
+						public void onItemClick(AdapterView<?> parent, View v,
+								int position, long id) {
+							// Toast.makeText(IndexMainActivity.this,
+							// strHotSpotUrl[position],
+							// Toast.LENGTH_SHORT).show();
+							Intent intent = new Intent();
+							intent.setClass(IndexMainActivity.this,
+									WebBrowser.class);
+							/* é€šè¿‡Bundleå¯¹è±¡å­˜å‚¨éœ€è¦ä¼ é€’çš„æ•°æ® */
+							Bundle bundle = new Bundle();
+							/* å­—ç¬¦ã€å­—ç¬¦ä¸²ã€å¸ƒå°”ã€å­—èŠ‚æ•°ç»„ã€æµ®ç‚¹æ•°ç­‰ç­‰ï¼Œéƒ½å¯ä»¥ä¼  */
+							bundle.putString("flag", "HotSpot");
+							bundle.putString("searchContent",
+									strHotSpotUrl[position]);
+							intent.putExtras(bundle);
+							startActivity(intent);
+						}
+					});
+					
+					pager.setViewPagerViews(views);
+					pager.setOnSingleTouchListener(new OnSingleTouchListener() {
+
+						@Override
+						public void onSingleTouch(int position) {
+
+							Toast.makeText(IndexMainActivity.this,
+									"å½“å‰ç‚¹å‡»" + gUrl.get(position), 0).show();
+						}
+					});
+				}
+				// myTextView.setText(builder.toString());
+			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -318,8 +371,8 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 		protected void onPreExecute() {
 			// TODO Auto-generated method stub
 			// super.onPreExecute();
-			Toast.makeText(getApplicationContext(), "¿ªÊ¼HTTP GETÇëÇó",
-					Toast.LENGTH_LONG).show();
+			// Toast.makeText(getApplicationContext(), "å¼€å§‹HTTP GETè¯·æ±‚",
+			// Toast.LENGTH_LONG).show();
 		}
 
 		@Override
@@ -337,32 +390,38 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 			// Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent();
 			intent.setClass(IndexMainActivity.this, WebBrowser.class);
-			/* Í¨¹ıBundle¶ÔÏó´æ´¢ĞèÒª´«µİµÄÊı¾İ */
+			/* é€šè¿‡Bundleå¯¹è±¡å­˜å‚¨éœ€è¦ä¼ é€’çš„æ•°æ® */
 			Bundle bundle = new Bundle();
 
 			switch (v.getId()) {
-				case R.id.bt_news:
-					bundle.putString("flag", "news");
-					bundle.putString("searchContent", IndexMainActivity.this.getString(R.string.news_base_url));
-					break;
-				case R.id.bt_video:
-					bundle.putString("flag", "video");
-					bundle.putString("searchContent", IndexMainActivity.this.getString(R.string.video_base_url));
-					break;
-				case R.id.bt_url:
-					bundle.putString("flag", "url");
-					bundle.putString("searchContent", IndexMainActivity.this.getString(R.string.url_base_url));
-					break;
-				case R.id.bt_image:
-					bundle.putString("flag", "image");
-					bundle.putString("searchContent", IndexMainActivity.this.getString(R.string.image_base_url));
-					break;
+			case R.id.bt_news:
+				bundle.putString("flag", "news");
+				bundle.putString("searchContent", IndexMainActivity.this
+						.getString(R.string.news_base_url));
+				break;
+			case R.id.bt_video:
+				bundle.putString("flag", "video");
+				bundle.putString("searchContent", IndexMainActivity.this
+						.getString(R.string.video_base_url));
+				break;
+			case R.id.bt_url:
+				intent = new Intent();
+				intent.setClass(IndexMainActivity.this, UrlActivity.class);
+				// bundle.putString("flag", "url");
+				// bundle.putString("searchContent",
+				// IndexMainActivity.this.getString(R.string.url_base_url));
+				break;
+			case R.id.bt_image:
+				bundle.putString("flag", "image");
+				bundle.putString("searchContent", IndexMainActivity.this
+						.getString(R.string.image_base_url));
+				break;
 			}
-			
-			/* ×Ö·û¡¢×Ö·û´®¡¢²¼¶û¡¢×Ö½ÚÊı×é¡¢¸¡µãÊıµÈµÈ£¬¶¼¿ÉÒÔ´« */
-			bundle.putString("flag", "news");
-			bundle.putString("searchContent",
-					IndexMainActivity.this.getString(R.string.news_base_url));
+
+			/* å­—ç¬¦ã€å­—ç¬¦ä¸²ã€å¸ƒå°”ã€å­—èŠ‚æ•°ç»„ã€æµ®ç‚¹æ•°ç­‰ç­‰ï¼Œéƒ½å¯ä»¥ä¼  */
+			// bundle.putString("flag", "news");
+			// bundle.putString("searchContent",
+			// IndexMainActivity.this.getString(R.string.news_base_url));
 			intent.putExtras(bundle);
 			startActivity(intent);
 		}
@@ -373,24 +432,54 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
 			// TODO Auto-generated method stub
-			if (event.getAction() == MotionEvent.ACTION_DOWN) {
-				ll_news.setBackgroundColor(Color.rgb(127, 127, 127));
-			} else if (event.getAction() == MotionEvent.ACTION_UP) {
-				ll_news.setBackgroundColor(Color.TRANSPARENT);
+
+			switch (v.getId()) {
+			case R.id.bt_news:
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					ll_news.setBackgroundColor(getResources().getColor(
+							R.color.touch_color));
+				} else if (event.getAction() == MotionEvent.ACTION_UP) {
+					ll_news.setBackgroundColor(Color.TRANSPARENT);
+				}
+				break;
+			case R.id.bt_video:
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					ll_video.setBackgroundColor(getResources().getColor(
+							R.color.touch_color));
+				} else if (event.getAction() == MotionEvent.ACTION_UP) {
+					ll_video.setBackgroundColor(Color.TRANSPARENT);
+				}
+				break;
+			case R.id.bt_url:
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					ll_url.setBackgroundColor(getResources().getColor(
+							R.color.touch_color));
+				} else if (event.getAction() == MotionEvent.ACTION_UP) {
+					ll_url.setBackgroundColor(Color.TRANSPARENT);
+				}
+				break;
+			case R.id.bt_image:
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					ll_image.setBackgroundColor(getResources().getColor(
+							R.color.touch_color));
+				} else if (event.getAction() == MotionEvent.ACTION_UP) {
+					ll_image.setBackgroundColor(Color.TRANSPARENT);
+				}
+				break;
 			}
 			return false;
 		}
 	};
 
 	// /**
-	// * »­ÃæÖ÷Ìå²¿µÄÔªËØ
+	// * ç”»é¢ä¸»ä½“éƒ¨çš„å…ƒç´ 
 	// */
 	// // @Override
 	// protected void setViewBody() {
-	// // ËÑË÷
+	// // æœç´¢
 	// etSearchText = (TextView) this.findViewById(R.id.id_search_text);
 	//
-	// // Ìí¼Ó°´Å¥µÄÕìÌıÊÂ¼ş
+	// // æ·»åŠ æŒ‰é’®çš„ä¾¦å¬äº‹ä»¶
 	// etSearchText.setOnClickListener(this);
 	// }
 	@Override
@@ -401,11 +490,11 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 	}
 
 	/**
-	 * °´Å¥µã»÷ÕìÌı
+	 * æŒ‰é’®ç‚¹å‡»ä¾¦å¬
 	 */
 	@Override
 	public void onClick(View v) {
-//		Resources resource = (Resources) getBaseContext().getResources();
+		// Resources resource = (Resources) getBaseContext().getResources();
 		switch (v.getId()) {
 		case R.id.btn_search:
 			searchContent = etSearchText.getText().toString();
@@ -413,9 +502,9 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 			Intent intent = new Intent();
 			intent.setClass(IndexMainActivity.this, WebBrowser.class);
 
-			/* Í¨¹ıBundle¶ÔÏó´æ´¢ĞèÒª´«µİµÄÊı¾İ */
+			/* é€šè¿‡Bundleå¯¹è±¡å­˜å‚¨éœ€è¦ä¼ é€’çš„æ•°æ® */
 			Bundle bundle = new Bundle();
-			/* ×Ö·û¡¢×Ö·û´®¡¢²¼¶û¡¢×Ö½ÚÊı×é¡¢¸¡µãÊıµÈµÈ£¬¶¼¿ÉÒÔ´« */
+			/* å­—ç¬¦ã€å­—ç¬¦ä¸²ã€å¸ƒå°”ã€å­—èŠ‚æ•°ç»„ã€æµ®ç‚¹æ•°ç­‰ç­‰ï¼Œéƒ½å¯ä»¥ä¼  */
 			bundle.putString("flag", "search");
 			bundle.putString("searchContent", searchContent);
 			intent.putExtras(bundle);
@@ -434,11 +523,45 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 	// }
 
 	/**
-	 * ¹Ø±ÕÈí¼üÅÌ
+	 * å…³é—­è½¯é”®ç›˜
 	 */
 	private void CloseKeyBoard() {
 		etSearchText.clearFocus();
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.hideSoftInputFromWindow(etSearchText.getWindowToken(), 0);
-	}	
+	}
+	
+	/** 
+     * è·å–ç½‘è½å›¾ç‰‡èµ„æº  
+     * @param url 
+     * @return 
+     */  
+    public static Bitmap getHttpBitmap(String url){  
+        URL myFileURL;  
+        Bitmap bitmap=null;  
+        try{  
+            myFileURL = new URL(url);  
+            //è·å¾—è¿æ¥  
+            HttpURLConnection conn=(HttpURLConnection)myFileURL.openConnection();  
+            //è®¾ç½®è¶…æ—¶æ—¶é—´ä¸º60000æ¯«ç§’ï¼Œconn.setConnectionTiem(0);è¡¨ç¤ºæ²¡æœ‰æ—¶é—´é™åˆ¶  
+            conn.setConnectTimeout(60000);  
+            //è¿æ¥è®¾ç½®è·å¾—æ•°æ®æµ  
+            conn.setDoInput(true);  
+            //ä¸ä½¿ç”¨ç¼“å­˜  
+            conn.setUseCaches(false);  
+            //è¿™å¥å¯æœ‰å¯æ— ï¼Œæ²¡æœ‰å½±å“  
+            //conn.connect();  
+            //å¾—åˆ°æ•°æ®æµ  
+            InputStream is = conn.getInputStream();  
+            //è§£æå¾—åˆ°å›¾ç‰‡  
+            bitmap = BitmapFactory.decodeStream(is);  
+            //å…³é—­æ•°æ®æµ  
+            is.close();  
+        }catch(Exception e){  
+            e.printStackTrace();  
+        }  
+          
+        return bitmap;  
+          
+    }  
 }

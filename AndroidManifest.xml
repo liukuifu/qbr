@@ -38,6 +38,10 @@
             android:name="com.nq.qbr.WebBrowser"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nq.qbr.UrlActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
         
     </application>
 

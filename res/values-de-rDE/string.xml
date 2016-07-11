@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>    
     <string name="search_base_url">www.google.de/#q=</string>
+    <string name="news_base_url">news.google.com.de</string>
+    <string name="video_base_url">www.youtube.com</string>
+    <string name="image_base_url">images.google.com.de</string>
+    
     <string name="back">Wink</string>
     <string name="forward">vorwärts</string>
     <string name="refresh">auffrischen</string>

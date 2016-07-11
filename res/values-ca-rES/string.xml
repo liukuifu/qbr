@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>    
     <string name="search_base_url">www.google.com.es/#q=</string>
+    <string name="news_base_url">news.google.com.es</string>
+    <string name="video_base_url">www.youtube.com</string>
+    <string name="image_base_url">images.google.com.es</string>
+    
     <string name="back">arroyo</string>
     <string name="forward">adelante</string>
     <string name="refresh">refrescar</string>

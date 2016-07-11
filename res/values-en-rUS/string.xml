@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>    
     <string name="search_base_url">www.google.com/#q=</string>
+    <string name="news_base_url">news.google.com</string>
+    <string name="video_base_url">www.youtube.com</string>
+    <string name="image_base_url">images.google.com</string>
+    
     
     <string name="btn_search">Search</string>
     <string name="search_content">search content</string>

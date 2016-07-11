@@ -19,6 +19,8 @@
     <color name="fore_color_gray">#666666</color>
     <color name="background_color_dark">#ff000000</color>
     <color name="background_color_search_btn">#4D90FE</color>
+    <color name="touch_color">#CCCCCC</color>
+    
     <!-- backgroud -->
     <drawable name="color_background_main">#f1f1f1</drawable>
     <drawable name="color_background_darkgray">#f4f4f4</drawable>

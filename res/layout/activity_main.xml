@@ -78,6 +78,27 @@
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/bt_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/com_dp_20"
+            android:layout_marginRight="@dimen/com_dp_20"
+            android:orientation="vertical"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/ib"
+                android:layout_width="@dimen/com_dp_40"
+                android:layout_height="@dimen/com_dp_40"
+                android:src="@drawable/url" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_display_url" />
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/bt_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,8 +109,8 @@
 
             <ImageView
                 android:id="@+id/ib_news"
-                android:layout_width="@dimen/com_dp_50"
-                android:layout_height="@dimen/com_dp_50"
+                android:layout_width="@dimen/com_dp_40"
+                android:layout_height="@dimen/com_dp_40"
                 android:src="@drawable/news"
             	android:background="#00000000" />
 
@@ -111,8 +132,8 @@
 
             <ImageView
                 android:id="@+id/ib"
-                android:layout_width="@dimen/com_dp_50"
-                android:layout_height="@dimen/com_dp_50"
+                android:layout_width="@dimen/com_dp_40"
+                android:layout_height="@dimen/com_dp_40"
                 android:src="@drawable/video" />
 
             <TextView
@@ -122,27 +143,6 @@
                 android:text="@string/btn_display_video" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/bt_url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/com_dp_20"
-            android:layout_marginRight="@dimen/com_dp_20"
-            android:orientation="vertical"
-            android:gravity="center" >
-
-            <ImageView
-                android:id="@+id/ib"
-                android:layout_width="@dimen/com_dp_50"
-                android:layout_height="@dimen/com_dp_50"
-                android:src="@drawable/url" />
-
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_display_url" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/bt_image"
@@ -155,8 +155,8 @@
 
             <ImageView
                 android:id="@+id/ib"
-                android:layout_width="@dimen/com_dp_50"
-                android:layout_height="@dimen/com_dp_50"
+                android:layout_width="@dimen/com_dp_40"
+                android:layout_height="@dimen/com_dp_40"
                 android:src="@drawable/image" />
 
             <TextView

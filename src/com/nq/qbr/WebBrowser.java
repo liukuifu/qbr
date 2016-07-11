@@ -209,8 +209,9 @@ public class WebBrowser extends Activity {
             {  
                 // TODO  
                 //show.loadUrl("http://maps.google.com");  
-            	Intent i = new Intent(WebBrowser.this,IndexMainActivity.class);
-            	startActivity(i);
+//            	Intent i = new Intent(WebBrowser.this,IndexMainActivity.class);
+//            	startActivity(i);
+            	finish();
             }  
         });  
           

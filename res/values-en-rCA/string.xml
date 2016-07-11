@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>    
     <string name="search_base_url">www.google.ca/#q=</string>
+    <string name="news_base_url">news.google.com.ca</string>
+    <string name="video_base_url">www.youtube.com</string>
+    <string name="image_base_url">images.google.com.ca</string>
+    
+    
     <string name="back">back</string>
     <string name="forward">forward</string>
     <string name="refresh">refresh</string>

@@ -10,6 +10,5 @@
 	<classpathentry kind="lib" path="/ykhapp_delivery/libs/commons-httpclient-3.0.1.jar"/>
 	<classpathentry kind="lib" path="/ykhapp_delivery/libs/locSDK_5.01.jar"/>
 	<classpathentry kind="lib" path="/ykhapp_delivery/libs/pushservice-4.3.0.4.jar"/>
-	<classpathentry kind="lib" path="/ykhapp_delivery/libs/universal-image-loader-1.8.6-with-sources.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

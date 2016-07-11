@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>    
     <string name="search_base_url">www.google.co.kr/#q=</string>
+    <string name="news_base_url">news.google.co.kr</string>
+    <string name="video_base_url">www.youtube.com</string>
+    <string name="image_base_url">images.google.co.kr</string>
+    
     <string name="back">백</string>
     <string name="forward">앞으로</string>
     <string name="refresh">새로 고침</string>

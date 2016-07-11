@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>   
-    <string name="search_base_url">www.baidu.com/s?wd</string>
-    
+    <string name="search_base_url">www.baidu.com/s?wd=</string>
+    <string name="news_base_url">news.baidu.com</string>
+    <string name="video_base_url">v.baidu.com</string>
+    <string name="image_base_url">image.baidu.com</string>
+   		
     <string name="btn_search">搜索</string>
     <string name="search_content">搜索内容</string>
     

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/layout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/com_dp_32"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/com_dp_10">
+	    <View
+	        android:id="@+id/linel"
+	        android:layout_width="1px"
+	        android:layout_height="@dimen/com_dp_20"
+	        android:background="@color/background_color_gray" />
+        <ImageView
+            android:id="@+id/ItemImage"
+            android:layout_width="@dimen/com_dp_20"
+            android:layout_height="@dimen/com_dp_20"
+            android:layout_marginLeft="@dimen/com_dp_10"
+            android:layout_marginRight="@dimen/com_dp_10" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/com_dp_30"
+            android:layout_marginLeft="@dimen/com_dp_40" >
+
+            <TextView
+                android:id="@+id/ItemText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:textColor="@drawable/color_text_lightblack" />
+        </RelativeLayout>
+    </FrameLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/background_color_gray" />
+
+</LinearLayout>
