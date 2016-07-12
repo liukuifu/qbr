@@ -4,6 +4,7 @@
     <string name="news_base_url">news.google.com.br</string>
     <string name="video_base_url">www.youtube.com</string>
     <string name="image_base_url">images.google.com.br</string>
+    <string name="url_base_url">http://www.123rede.com/rss/rssnews.json?t=</string>    
     
     <string name="hot_url_1">facebook.com</string>
 	<string name="hot_url_2">youtube.com</string>

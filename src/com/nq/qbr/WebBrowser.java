@@ -35,12 +35,7 @@ public class WebBrowser extends Activity {
     WebBrowser wb = this;
     String[] booksArray = new String[]  
     {    
-            "www.baidu.com"
-//            "http://maps.google.com",  
-//            "http://maps.baidu.com",  
-//            "http://qq.com",  
-//            "www.baidu.com",  
-//            "www.163.com"  
+            "www.google.com"
     };  
       
     @Override  

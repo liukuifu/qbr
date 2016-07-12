@@ -15,7 +15,7 @@ public class MyGridView extends GridView
 	}
 
 	/**
-	 * 璁剧疆涓嶆粴鍔�
+	 * 璁剧疆涓嶆粴
 	 */
 	public void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
 	{

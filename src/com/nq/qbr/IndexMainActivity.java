@@ -56,6 +56,7 @@ import com.nq.qbr.utils.rootUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 
 public class IndexMainActivity extends Activity implements OnClickListener {
 	private EditText etSearchText;
@@ -72,25 +73,6 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 	private String[] strHotSpot = { "", "", "", "", "", "", "", "", };
 	private String[] strHotSpotUrl = { "", "", "", "", "", "", "", "", };
 
-	// private GridView gv_url;
-	//
-	// private String[] strUrlUrl = {
-	// "http://3g.163.com/touch/all?nav=1&version=v_standard",
-	// "http://info.3g.qq.com/g/",
-	// "https://m.taobao.com/",
-	// "http://sina.cn/",
-	// "https://m.baidu.com/",
-	// "http://m.sohu.com/",
-	// "http://i.ifeng.com/",
-	// "",
-	// "",
-	// "",
-	// "",
-	// "",
-	// "",
-	// "",
-	// "",
-	// "", };
 	private ArrayList<View> views;
 	private ArrayList<String> gUrl;
 	
@@ -131,11 +113,11 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 		ll_image.setOnTouchListener(otl);
 
 		if (rootUtils.isDeviceRooted()) {
-			 tst = Toast.makeText(this, "有root权限", Toast.LENGTH_SHORT);
-			 tst.show();
+//			 tst = Toast.makeText(this, "有root权限", Toast.LENGTH_SHORT);
+//			 tst.show();
 		} else {
-			 tst = Toast.makeText(this, "没有获得root权限", Toast.LENGTH_SHORT);
-			 tst.show();
+//			 tst = Toast.makeText(this, "没有获得root权限", Toast.LENGTH_SHORT);
+//			 tst.show();
 		}
 
 		// 热点请求地址
@@ -148,63 +130,6 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 		// 请求热点
 		new ReadHttpGet().execute(urlBase + timestamp);
 
-		// gv_url = (GridView) findViewById(R.id.gv_url);
-		//
-		// // 为GridView设置适配器
-		// UrlAdapter ma = new UrlAdapter(this);
-		// // ma.strUrl = strUrl;
-		// gv_url.setAdapter(ma);
-		// // gv.setAdapter(new MyAdapter(this));
-		// // 注册监听事件
-		// gv_url.setOnItemClickListener(new OnItemClickListener() {
-		// public void onItemClick(AdapterView<?> parent, View v,
-		// int position, long id) {
-		// // Toast.makeText(IndexMainActivity.this, strHotSpotUrl[position],
-		// // Toast.LENGTH_SHORT).show();
-		// Intent intent = new Intent();
-		// intent.setClass(IndexMainActivity.this, WebBrowser.class);
-		// /* 通过Bundle对象存储需要传递的数据 */
-		// Bundle bundle = new Bundle();
-		// /* 字符、字符串、布尔、字节数组、浮点数等等，都可以传 */
-		// bundle.putString("flag", "UrlUrl");
-		// bundle.putString("searchContent", strUrlUrl[position]);
-		// intent.putExtras(bundle);
-		// startActivity(intent);
-		// }
-		// });
-
-		// 组装imageView列表
-		// 把要轮播的图片添加到列表里调用setViewPagerViews方法添加到自定义的Viewpager里面就可以使用了
-//		views = new ArrayList<View>();
-//		gUrl = new ArrayList<String>();
-//		Banner pager = (Banner) findViewById(R.id.my_view_pager);
-//		ImageView image = new ImageView(this);
-//		image.setImageResource(R.drawable.image1);
-//		views.add(image);
-//		gUrl.add("11111");
-//		image = new ImageView(this);
-//		image.setImageResource(R.drawable.image2);
-//		views.add(image);
-//		gUrl.add("22222");
-//		image = new ImageView(this);
-//		image.setImageResource(R.drawable.image3);
-//		views.add(image);
-//		gUrl.add("333333");
-//		image = new ImageView(this);
-//		image.setImageResource(R.drawable.image4);
-//		views.add(image);
-//		gUrl.add("444444");
-//
-//		pager.setViewPagerViews(views);
-//		pager.setOnSingleTouchListener(new OnSingleTouchListener() {
-//
-//			@Override
-//			public void onSingleTouch(int position) {
-//
-//				Toast.makeText(IndexMainActivity.this,
-//						"当前点击" + gUrl.get(position), 0).show();
-//			}
-//		});
 		options = new DisplayImageOptions.Builder()
 		.showStubImage(R.drawable.default_image)			// 设置图片下载期间显示的图片
 		.showImageForEmptyUri(R.drawable.default_image)	// 设置图片Uri为空或是错误的时候显示的图片
@@ -257,9 +182,9 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 				// 创建一个JSON对象
 				if (result != null) {
 					String e = result.toString();
-					// JSONObject jsonObject = new
-					// JSONObject(result.toString()).getJSONObject("news");
+//					e = "{\"news_en\":[{\"title\":\"Matt Harvey says he'd consider long-term extension to stay with Mets - New York Daily News\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNE-_wEZFG83FJ17QPumKm5hviop8A&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779047800967&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://www.nydailynews.com/sports/baseball/mets/matt-harvey-long-term-deal-mets-article-1.2532056\",\"img\":\"//t2.gstatic.com/images?q=tbn:ANd9GcTUCQTo__kjzwA0yANZ_-5AAoYig7uID0Xxuj_R9gr7_gNOeHCyR8lkW7EWHkLL0akQeVclFE8\"},{\"title\":\"Wayne Selden Jr. leads No. 2 Kansas to 94-67 win over Oklahoma State - USA TODAY\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNFScA-t5Ig68QdcrDQFQ2hMIcU7_A&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779047700289&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://www.usatoday.com/story/sports/ncaab/2016/02/15/selden-leads-no-2-kansas-to-94-67-win-over-oklahoma-state/80437420/\",\"img\":\"//t1.gstatic.com/images?q=tbn:ANd9GcTeSVu30loGQ0XD11FQimlrfizo9bFn6Z5G04FNpAdUhP5HOpPODAMTLy4JefKii8FZrYBzVaaH\"},{\"title\":\"USWNT Wins In Rout, But Rodriguez, Costa Rica Steal Show - ESPN\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNFqyqEDTcUNKctnBW5AZCCFbnzbvQ&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779047140858&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://espn.go.com/espnw/sports/article/14784271/us-women-natoinal-team-raquel-rodriguez-costa-rica-advance-concacaf-semifinals\",\"img\":\"//t2.gstatic.com/images?q=tbn:ANd9GcR1kxHjDyO_ayM1Rg3vwgPJL0M1vbZoynfQpNBK2owp7BTrCX6aCy8-uSH5nFL_j8uMdh1U_4jz\"},{\"title\":\"Undefeated bantamweight Aljamain Sterling signs new deal with UFC - ESPN\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNFA5UOx3xQZ-Wiwr3-OflMt4HHczg&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779047425887&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://espn.go.com/mma/story/_/id/14782715/undefeated-bantamweight-aljamain-sterling-signs-new-deal-ufc\"},{\"title\":\"Ivo Karlovic, the Defending Champion, Loses in the First Round at Delray Beach - New York Times\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNG_KKCbYKya6iDjYMlu3synfGtBQA&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779047997731&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://www.nytimes.com/aponline/2016/02/15/sports/tennis/ap-ten-delray-beach.html\"},{\"title\":\"Sources: Miami Heat fears another blood clot for Chris Bosh - Miami Herald\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNH0eB9O14Z74T0p0p50UgABI_Sm3g&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779047147243&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://www.miamiherald.com/sports/nba/miami-heat/article60580336.html\"},{\"title\":\"Wisconsin basketball notebook: Stone suspended, bracketology update - Bucky's 5th Quarter\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNHh3xr6MzWnsnp3v1iJvMp9ZAysuQ&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779048004571&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://www.buckys5thquarter.com/2016/2/15/11011060/wisconsin-basketball-diamond-stone-suspension-bracketology\"},{\"title\":\"Bellator's Coker defends 'legend fights' like Shamrock-Gracie III: 'Why not? We have something for everybody' - MMATorch\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNEdC6rRkk4K6kfvqHE3IOssf5Ktmw&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779046218178&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://www.mmatorch.com/artman2/publish/Bellator/article_28425.shtml\"},{\"title\":\"PSG vs. Chelsea: Team News, Predicted Lineups, Live Stream, TV Info - Bleacher Report\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNHaOJlz1btIw3O5OcpH9vGfTLPixQ&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779046505314&ei=AuXCVoiPCIWXyAPChbiQCg&url=http://bleacherreport.com/articles/2616869-psg-vs-chelsea-team-news-predicted-lineups-live-stream-tv-info\"},{\"title\":\"Montoya, Panthers top Penguins - NHL.com\",\"url\":\"http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNH22_jQ_rA3Uz7EJq4lt_CRlODRTA&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779047410366&ei=AuXCVoiPCIWXyAPChbiQCg&url=https://www.nhl.com/news/al-montoya-florida-panthers-top-pittsburgh-penguins/c-278840806?tid%3D278508118\"}]}";
 					JSONObject jsonObject = new JSONObject(result.toString());
+//					JSONObject jsonObject = new JSONObject(e);
 					JSONArray jsonArray = new JSONArray();
 					// 获取某个对象的JSON数组
 					if (jsonObject.has("news")){
@@ -271,12 +196,7 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 					}else if (jsonObject.has("news_in")){
 						jsonArray = jsonObject.getJSONArray("news_in");
 					}
-					// JSONArray jsonArray = jsonObject.getJSONArray("news");
-
-					// Toast.makeText(getApplicationContext(),
-					// jsonArray.toString(),
-					// Toast.LENGTH_LONG).show();
-					// StringBuilder builder = new StringBuilder();
+					
 					String tempTitle = "";
 
 					Banner pager = (Banner) findViewById(R.id.my_view_pager);
@@ -307,12 +227,52 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 						strHotSpotUrl[i] = url;
 						if(i<3){
 							String img = "http:"+jsonObject2.getString("img");
+//							String img = jsonObject2.getString("img");
 							
 					        //得到可用的图片  
 //					        Bitmap bitmap = getHttpBitmap(img);  
 							image = new ImageView(IndexMainActivity.this);
 //							image.setImageBitmap(bitmap); 
 							// 向大ImageView中加载图片
+							ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(  
+									getApplicationContext())  
+						            // max width, max height，即保存的每个缓存文件的最大长宽  
+//						            .memoryCacheExtraOptions(480, 800)  
+						            // Can slow ImageLoader, use it carefully (Better don't use it)设置缓存的详细信息，最好不要设置这个  
+						//           .discCacheExtraOptions(480, 800, CompressFormat.JPEG, 75, null)   
+						            // 线程池内加载的数量  
+						            .threadPoolSize(3)  
+						            // 线程优先级  
+						            .threadPriority(Thread.NORM_PRIORITY - 2)  
+						            /* 
+						             * When you display an image in a small ImageView 
+						             *  and later you try to display this image (from identical URI) in a larger ImageView  
+						             *  so decoded image of bigger size will be cached in memory as a previous decoded image of smaller size. 
+						             *  So the default behavior is to allow to cache multiple sizes of one image in memory.  
+						             *  You can deny it by calling this method:  
+						             *  so when some image will be cached in memory then previous cached size of this image (if it exists) 
+						             *   will be removed from memory cache before. 
+						             */  
+						//               .denyCacheImageMultipleSizesInMemory()  
+						              
+						            // You can pass your own memory cache implementation你可以通过自己的内存缓存实现  
+						            // .memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024))   
+						            // .memoryCacheSize(2 * 1024 * 1024)  
+						            //硬盘缓存50MB  
+						  //          .diskCacheSize(50 * 1024 * 1024)  
+						             //将保存的时候的URI名称用MD5  
+//						            .diskCacheFileNameGenerator(new Md5FileNameGenerator())  
+						            // 加密  
+//						             .diskCacheFileNameGenerator(new HashCodeFileNameGenerator())//将保存的时候的URI名称用HASHCODE加密  
+//						            .tasksProcessingOrder(QueueProcessingType.LIFO)  
+//						             .diskCacheFileCount(100) //缓存的File数量  
+//						            .diskCache(new UnlimitedDiscCache(cacheDir))// 自定义缓存路径  
+						            // .defaultDisplayImageOptions(DisplayImageOptions.createSimple())  
+						             .imageDownloader(new BaseImageDownloader(getApplicationContext(), 50 * 1000, 300 * 1000)) // connectTimeout (5 s), readTimeout (30 s)超时时间  
+						            .writeDebugLogs() // Remove for release app  
+						            .build();  
+							
+							imageLoader.getInstance().init(config);
 							imageLoader.init(ImageLoaderConfiguration.createDefault(IndexMainActivity.this));
 							imageLoader.displayImage(img, image, IndexMainActivity.this.options);
 							views.add(image);
@@ -355,8 +315,17 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 						@Override
 						public void onSingleTouch(int position) {
 
-							Toast.makeText(IndexMainActivity.this,
-									"当前点击" + gUrl.get(position), 0).show();
+//							Toast.makeText(IndexMainActivity.this,
+//									"当前点击" + gUrl.get(position), 0).show();
+							Intent intent = new Intent();
+							intent.setClass(IndexMainActivity.this,
+									WebBrowser.class);
+							/* 通过Bundle对象存储需要传递的数据 */
+							Bundle bundle = new Bundle();
+							bundle.putString("flag", "Banner");
+							bundle.putString("searchContent",gUrl.get(position));
+							intent.putExtras(bundle);
+							startActivity(intent);
 						}
 					});
 				}
@@ -531,37 +500,37 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 		imm.hideSoftInputFromWindow(etSearchText.getWindowToken(), 0);
 	}
 	
-	/** 
-     * 获取网落图片资源  
-     * @param url 
-     * @return 
-     */  
-    public static Bitmap getHttpBitmap(String url){  
-        URL myFileURL;  
-        Bitmap bitmap=null;  
-        try{  
-            myFileURL = new URL(url);  
-            //获得连接  
-            HttpURLConnection conn=(HttpURLConnection)myFileURL.openConnection();  
-            //设置超时时间为60000毫秒，conn.setConnectionTiem(0);表示没有时间限制  
-            conn.setConnectTimeout(60000);  
-            //连接设置获得数据流  
-            conn.setDoInput(true);  
-            //不使用缓存  
-            conn.setUseCaches(false);  
-            //这句可有可无，没有影响  
-            //conn.connect();  
-            //得到数据流  
-            InputStream is = conn.getInputStream();  
-            //解析得到图片  
-            bitmap = BitmapFactory.decodeStream(is);  
-            //关闭数据流  
-            is.close();  
-        }catch(Exception e){  
-            e.printStackTrace();  
-        }  
-          
-        return bitmap;  
-          
-    }  
+//	/** 
+//     * 获取网落图片资源  
+//     * @param url 
+//     * @return 
+//     */  
+//    public static Bitmap getHttpBitmap(String url){  
+//        URL myFileURL;  
+//        Bitmap bitmap=null;  
+//        try{  
+//            myFileURL = new URL(url);  
+//            //获得连接  
+//            HttpURLConnection conn=(HttpURLConnection)myFileURL.openConnection();  
+//            //设置超时时间为60000毫秒，conn.setConnectionTiem(0);表示没有时间限制  
+//            conn.setConnectTimeout(60000);  
+//            //连接设置获得数据流  
+//            conn.setDoInput(true);  
+//            //不使用缓存  
+//            conn.setUseCaches(false);  
+//            //这句可有可无，没有影响  
+//            //conn.connect();  
+//            //得到数据流  
+//            InputStream is = conn.getInputStream();  
+//            //解析得到图片  
+//            bitmap = BitmapFactory.decodeStream(is);  
+//            //关闭数据流  
+//            is.close();  
+//        }catch(Exception e){  
+//            e.printStackTrace();  
+//        }  
+//          
+//        return bitmap;  
+//          
+//    }  
 }
