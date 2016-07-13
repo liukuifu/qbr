@@ -112,13 +112,13 @@ public class IndexMainActivity extends Activity implements OnClickListener {
 		ll_image.setOnClickListener(ocl);
 		ll_image.setOnTouchListener(otl);
 
-		if (rootUtils.isDeviceRooted()) {
-//			 tst = Toast.makeText(this, "有root权限", Toast.LENGTH_SHORT);
-//			 tst.show();
-		} else {
-//			 tst = Toast.makeText(this, "没有获得root权限", Toast.LENGTH_SHORT);
-//			 tst.show();
-		}
+//		if (rootUtils.isDeviceRooted()) {
+////			 tst = Toast.makeText(this, "有root权限", Toast.LENGTH_SHORT);
+////			 tst.show();
+//		} else {
+////			 tst = Toast.makeText(this, "没有获得root权限", Toast.LENGTH_SHORT);
+////			 tst.show();
+//		}
 
 		// 热点请求地址
 		Date now = new Date();

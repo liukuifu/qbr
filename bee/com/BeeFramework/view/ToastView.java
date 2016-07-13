@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.shs.buymedicine.delivery.R;
 import com.nq.qbr.R;
 
 public class ToastView {

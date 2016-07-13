@@ -44,8 +44,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-//import com.shs.buymedicine.delivery.R;
-
 
 @SuppressLint("NewApi")
 public class TabsFragment extends Fragment

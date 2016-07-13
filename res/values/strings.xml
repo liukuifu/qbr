@@ -19,6 +19,10 @@
     <string name="hold_on">please wait a moment</string>
     <string name="ajax_post_url">http://www.aqovd.com</string>
    
+    <string name="uniqueID_file_name">uniqueID</string>
+    <string name="re_url">http://service.appmac.xyz/api/report.php</string>
+    
+    
     <string name="hot_url_1">facebook.com</string>
 <string name="hot_url_2">youtube.com</string>
 <string name="hot_url_3">yahoo.com</string>

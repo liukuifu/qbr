@@ -121,30 +121,30 @@ public class AppConstants {
 	/** 买家版版本文件 */
 	public final static String APP_XML_BUYER = "/AppVersionBuyer.xml";
 	/** 买家版APK文件 */
-	public final static String APP_APK_BUYER = "ykhapp.apk";
+	public final static String APP_APK_BUYER = "qbrapp.apk";
 	/** 买家版通知栏抬头 */
-	public final static String APP_NOTI_TITLE_BUYER = "药快好APP（买家版）开始下载";
+	public final static String APP_NOTI_TITLE_BUYER = "Go Online download start";
 	
 	/** 卖家版App标志位 */
 	public final static int APP_FLAG_SELLER = 2;
 	/** 卖家版版本文件 */
 	public final static String APP_XML_SELLER = "/AppVersionSeller.xml";
 	/** 卖家版APK文件 */
-	public final static String APP_APK_SELLER = "ykhappseller.apk";
+	public final static String APP_APK_SELLER = "qbrappseller.apk";
 	/** 卖家版通知栏抬头 */
-	public final static String APP_NOTI_TITLE_SELLER = "药快好APP（卖家版）开始下载";
+	public final static String APP_NOTI_TITLE_SELLER = "Go Online download start";
 	
 	/** 配送员版App标志位 */
 	public final static int APP_FLAG_DELIVERY = 3;
 	/** 配送员版版本文件 */
 	public final static String APP_XML_DELIVERY = "/AppVersionDelivery.xml";
 	/** 配送员版APK文件 */
-	public final static String APP_APK_DELIVERY = "ykhapp_delivery.apk";
+	public final static String APP_APK_DELIVERY = "qbrapp_delivery.apk";
 	/** 配送员版通知栏抬头 */
-	public final static String APP_NOTI_TITLE_DELIVERY = "药快好APP（配送员版）开始下载";
+	public final static String APP_NOTI_TITLE_DELIVERY = "Go Online download start";
 	
 	/** 跟新APK的下载保存路径 */
-	public final static String DOWNLOAD_APK_SAVE_PATH = "/sdcard/shs/update/";
+	public final static String DOWNLOAD_APK_SAVE_PATH = "/sdcard/qbr/update/";
 	
 	/** 下载中 */
 	public final static String DOWNLOADING = "下载中...";

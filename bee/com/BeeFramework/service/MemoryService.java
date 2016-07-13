@@ -35,7 +35,6 @@ import android.widget.TextView;
 import com.BeeFramework.BeeFrameworkApp;
 import com.BeeFramework.Utils.LinuxUtils;
 import com.BeeFramework.model.BeeCallback;
-//import com.shs.buymedicine.delivery.R;
 
 /*
  *	 ______    ______    ______

@@ -22,7 +22,6 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 
-//import com.shs.buymedicine.delivery.R;
 import com.external.activeandroid.util.Log;
 
 /*

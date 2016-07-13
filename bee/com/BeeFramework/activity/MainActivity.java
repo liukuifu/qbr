@@ -54,11 +54,6 @@ import com.BeeFramework.Utils.CustomExceptionHandler;
 import com.BeeFramework.model.BeeQuery;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
-//import com.shs.buymedicine.AppConstants;
-//import com.shs.buymedicine.SdkKeyConsts;
-//import com.shs.buymedicine.YkhApp;
-//import com.shs.buymedicine.delivery.R;
-//import com.shs.buymedicine.utils.UpdateManager;
 
 public class MainActivity extends BaseActivity{
     public static final String RESPONSE_METHOD = "method";

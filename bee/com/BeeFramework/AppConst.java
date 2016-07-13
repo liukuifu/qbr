@@ -37,7 +37,7 @@ public class AppConst {
     public static final int BALL_COLOR_BLUE = 0;
     public static final Boolean DEBUG = true;
     /** 下载图片保存目录 */
-    public static final String PIC_DIR_PATH = "/ykhapp/pic";
+    public static final String PIC_DIR_PATH = "/qdrapp/pic";
     /** 允许发送的最大字数 */
     public static final int MAX_CONTENT_LEN = 140;
 
@@ -45,7 +45,7 @@ public class AppConst {
 
 
     /** 程序运行期间产生的文件，缓存根目录 */
-    public static final String ROOT_DIR_PATH = "/ykhapp/cache";
+    public static final String ROOT_DIR_PATH = "/qdrapp/cache";
     /** 缓存文件保存的根目录 */
     public static final String CACHE_DIR_PATH = ROOT_DIR_PATH + "/file";
     public static final String LOG_DIR_PATH = ROOT_DIR_PATH + "log";
@@ -53,9 +53,9 @@ public class AppConst {
     public static final String SINA_KEY = "804874423";
     
     /** 后台API访问URL */
-    public static final String SERVER_JFINAL_PRODUCTION = "http://115.28.168.32:28080/ykh_api";
-    public static final String SERVER_JFINAL_DEVELOPMENT = "http://115.28.168.32:28080/ykh_api";
-    public static final String SERVER_JFINAL_BASEURL = "http://115.28.168.32:28080/ykh_api";
-    public static final String SERVER_JFINAL_LOAD_IMG_BASEURL = "http://115.28.168.32/ykh";
-    public static final String SERVER_JFINAL_UPDATE_CHECK_BASEURL = "http://115.28.168.32:28080/";
+    public static final String SERVER_JFINAL_PRODUCTION = "http://192.168.1.4:8080/qdr_api";
+    public static final String SERVER_JFINAL_DEVELOPMENT = "http://192.168.1.4:8080/qdr_api";
+    public static final String SERVER_JFINAL_BASEURL = "http://192.168.1.4:8080/qdr_api";
+    public static final String SERVER_JFINAL_LOAD_IMG_BASEURL = "http://192.168.1.4/qdr";
+    public static final String SERVER_JFINAL_UPDATE_CHECK_BASEURL = "http://192.168.1.4:8080/";
 }
