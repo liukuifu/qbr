@@ -12,6 +12,7 @@
 		android:id="@+id/id_common_title_left"
 		android:layout_width="@dimen/com_dp_25"
 		android:layout_height="@dimen/com_dp_25"
+        android:layout_marginLeft="@dimen/com_dp_10"
 		android:layout_gravity="center"
 		android:scaleType="fitXY" 
 		android:src="@drawable/common_header_back"/>

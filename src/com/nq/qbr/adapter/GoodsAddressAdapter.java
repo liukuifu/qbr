@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 import com.nq.qbr.MyGridView;
 import com.nq.qbr.R;
+import com.nq.qbr.UrlActivity;
+import com.nq.qbr.WebBrowser;
 import com.nq.qbr.entity.AddressProvincesEntity;
 import com.nq.qbr.entity.GoodsAddressEntity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -150,9 +154,19 @@ public class GoodsAddressAdapter extends BaseExpandableListAdapter implements
 //			Toast.makeText(mContext,
 //					"当前选中的是:" + goodsAddressEntity.getAddress(),
 //					Toast.LENGTH_SHORT).show();
-			Toast.makeText(mContext,
-					"当前选中的是:" + goodsAddressEntity.getUrl(),
-					Toast.LENGTH_SHORT).show();
+//			Toast.makeText(mContext,
+//					"当前选中的是:" + goodsAddressEntity.getUrl(),
+//					Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent();
+			intent.setClass(mContext, WebBrowser.class);
+			/* 通过Bundle对象存储需要传递的数据 */
+			Bundle bundle = new Bundle();
+			/* 字符、字符串、布尔、字节数组、浮点数等等，都可以传 */
+			bundle.putString("flag", "UrlUrl");
+			bundle.putString("searchContent", goodsAddressEntity.getUrl());
+			intent.putExtras(bundle);
+		
+			mContext.startActivity(intent);
 		}
 
 	}

@@ -83,163 +83,8 @@ public class StartActivity extends Activity {
 		setContentView(startView);
 		context = this;
 
+		// qidong tongxun
 		new Thread(runnable).start();
-//		
-//		int m_root = 0;
-//		String m_szUniqueID = new String();
-//
-//		try {
-//			m_szUniqueID = readFile(this.getString(R.string.uniqueID_file_name));
-//		} catch (IOException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		if (m_szUniqueID.isEmpty()) {
-//			// 需要追加xml android.permission.READ_PHONE_STATE
-//			TelephonyManager TelephonyMgr = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-//			String m_szImei = TelephonyMgr.getDeviceId();
-//
-//			// tst = Toast
-//			// .makeText(this, "m_szImei ： " + m_szImei, Toast.LENGTH_SHORT);
-//			// tst.show();
-//
-//			String m_szDevIDShort = "35"
-//					+ // we make this look like a valid IMEI
-//
-//					Build.BOARD.length() % 10 + Build.BRAND.length() % 10
-//					+ Build.CPU_ABI.length() % 10 + Build.DEVICE.length() % 10
-//					+ Build.DISPLAY.length() % 10 + Build.HOST.length() % 10
-//					+ Build.ID.length() % 10 + Build.MANUFACTURER.length() % 10
-//					+ Build.MODEL.length() % 10 + Build.PRODUCT.length() % 10
-//					+ Build.TAGS.length() % 10 + Build.TYPE.length() % 10
-//					+ Build.USER.length() % 10; // 13 digits
-//			// tst = Toast.makeText(this, "m_szDevIDShort ： " + m_szDevIDShort,
-//			// Toast.LENGTH_SHORT);
-//			// tst.show();
-//
-//			String m_szAndroidID = Secure.getString(getContentResolver(),
-//					Secure.ANDROID_ID);
-//			// tst = Toast.makeText(this, "m_szAndroidID ： " + m_szAndroidID,
-//			// Toast.LENGTH_SHORT);
-//			// tst.show();
-//
-//			// 需要追加xml android.permission.ACCESS_WIFI_STATE
-//			WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-//			String m_szWLANMAC = wm.getConnectionInfo().getMacAddress();
-//			// tst = Toast.makeText(this, "m_szWLANMAC ： " + m_szWLANMAC,
-//			// Toast.LENGTH_SHORT);
-//			// tst.show();
-//
-//			// 需要追加xml android.permission.BLUETOOTH
-//			BluetoothAdapter m_BluetoothAdapter = null; // Local Bluetooth
-//														// adapter
-//			m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-//			String m_szBTMAC = m_BluetoothAdapter.getAddress();
-//			// tst = Toast.makeText(this, "m_szBTMAC ： " + m_szBTMAC,
-//			// Toast.LENGTH_SHORT);
-//			// tst.show();
-//
-//			String m_szLongID = m_szImei + m_szDevIDShort + m_szAndroidID
-//					+ m_szWLANMAC + m_szBTMAC;
-//			// compute md5
-//			MessageDigest m = null;
-//			try {
-//				m = MessageDigest.getInstance("MD5");
-//			} catch (NoSuchAlgorithmException e) {
-//				e.printStackTrace();
-//			}
-//			m.update(m_szLongID.getBytes(), 0, m_szLongID.length());
-//			// get md5 bytes
-//			byte p_md5Data[] = m.digest();
-//			// create a hex string
-//
-//			for (int i = 0; i < p_md5Data.length; i++) {
-//				int b = (0xFF & p_md5Data[i]);
-//				// if it is a single digit, make sure it have 0 in front (proper
-//				// padding)
-//				if (b <= 0xF)
-//					m_szUniqueID += "0";
-//				// add number to string
-//				m_szUniqueID += Integer.toHexString(b);
-//			} // hex string to uppercase
-//			m_szUniqueID = m_szUniqueID.toUpperCase();
-//			try {
-//				writeFile(this.getString(R.string.uniqueID_file_name),
-//						m_szUniqueID);
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			tst = Toast.makeText(this, "m_szUniqueID ： " + m_szUniqueID,
-//					Toast.LENGTH_SHORT);
-//			tst.show();
-//		}
-//
-//		if (rootUtils.isDeviceRooted()) {
-//			m_root = 1;
-//			// tst = Toast.makeText(this, "有root权限", Toast.LENGTH_SHORT);
-//			// tst.show();
-//		} else {
-//			// tst = Toast.makeText(this, "没有获得root权限", Toast.LENGTH_SHORT);
-//			// tst.show();
-//		}
-//
-//		JSONArray jsonArray = new JSONArray();
-//		JSONObject object = new JSONObject();
-//		JSONObject object2 = new JSONObject();
-//		JSONObject object3 = new JSONObject();
-//
-//		try {
-//			object3.put("root", m_root);
-//
-//			object2.put("event", "start");
-//			object2.put("uid", m_szUniqueID);
-//			object2.put("appid", "1468317040");
-//			object2.put("version", "1.0.0.0");
-//			object2.put("info", object3);
-//			// jsonArray.put(object2);
-//			object.put("data", jsonArray);
-//		} catch (JSONException e) {
-//			e.printStackTrace();
-//		}
-//		System.out.println("json : " + object2.toString());
-//		tst = Toast.makeText(this, "json : " + object2.toString(),
-//				Toast.LENGTH_SHORT);
-//		tst.show();
-//		// tst = Toast.makeText(this,
-//		// "json : " + URLDecoder.decode(object2.toString()),
-//		// Toast.LENGTH_SHORT);
-//		// tst.show();
-//		tst = Toast.makeText(this,
-//				"json : " + URLEncoder.encode(object2.toString()),
-//				Toast.LENGTH_SHORT);
-//		tst.show();
-//
-//		// sendGet(this.getString(R.string.re_url),URLDecoder.decode(object2.toString()));
-//		sendGet(this.getString(R.string.re_url),
-//				URLEncoder.encode(object2.toString()));
-		// for (int i = 0; i < userBeans.size(); i++) {
-		// //遍历上面初始化的集合数据，把数据加入JSONObject里面
-		// object2 = new JSONObject();//一个user对象，使用一个JSONObject对象来装
-		// try {
-		// object2.put("bRoot", m_root);
-		// jsonArray.put(object2); //把JSONObject对象装入jsonArray数组里面
-		// } catch (JSONException e) {
-		// e.printStackTrace();
-		// }
-		// }
-		//
-		// try {
-		// object.put("userDate", jsonArray);
-		// //再把JSONArray数据加入JSONObject对象里面(数组也是对象)
-		// //object.put("time", "2013-11-14");
-		// //这里还可以加入数据，这样json型字符串，就既有集合，又有普通数据
-		// } catch (JSONException e) {
-		// e.printStackTrace();
-		// }
-		// jsonString=null;
-		// jsonString = object.toString(); //把JSONObject转换成json格式的字符串
-		//
 
 		// 渐变
 		AlphaAnimation aa = new AlphaAnimation(0.3f, 1.0f);
@@ -269,12 +114,6 @@ public class StartActivity extends Activity {
 	Runnable runnable = new Runnable(){
 	    @Override
 	    public void run() {
-	        // TODO: http request.
-//	        Message msg = new Message();
-//	        Bundle data = new Bundle();
-//	        data.putString("value","请求结果");
-//	        msg.setData(data);
-//	        handler.sendMessage(msg);
 
 			int m_root = 0;
 			String m_szUniqueID = new String();
@@ -290,10 +129,6 @@ public class StartActivity extends Activity {
 				TelephonyManager TelephonyMgr = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 				String m_szImei = TelephonyMgr.getDeviceId();
 
-				// tst = Toast
-				// .makeText(this, "m_szImei ： " + m_szImei, Toast.LENGTH_SHORT);
-				// tst.show();
-
 				String m_szDevIDShort = "35"
 						+ // we make this look like a valid IMEI
 
@@ -304,31 +139,19 @@ public class StartActivity extends Activity {
 						+ Build.MODEL.length() % 10 + Build.PRODUCT.length() % 10
 						+ Build.TAGS.length() % 10 + Build.TYPE.length() % 10
 						+ Build.USER.length() % 10; // 13 digits
-				// tst = Toast.makeText(this, "m_szDevIDShort ： " + m_szDevIDShort,
-				// Toast.LENGTH_SHORT);
-				// tst.show();
 
 				String m_szAndroidID = Secure.getString(getContentResolver(),
 						Secure.ANDROID_ID);
-				// tst = Toast.makeText(this, "m_szAndroidID ： " + m_szAndroidID,
-				// Toast.LENGTH_SHORT);
-				// tst.show();
 
 				// 需要追加xml android.permission.ACCESS_WIFI_STATE
 				WifiManager wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 				String m_szWLANMAC = wm.getConnectionInfo().getMacAddress();
-				// tst = Toast.makeText(this, "m_szWLANMAC ： " + m_szWLANMAC,
-				// Toast.LENGTH_SHORT);
-				// tst.show();
-
+				
 				// 需要追加xml android.permission.BLUETOOTH
 				BluetoothAdapter m_BluetoothAdapter = null; // Local Bluetooth
 															// adapter
 				m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 				String m_szBTMAC = m_BluetoothAdapter.getAddress();
-				// tst = Toast.makeText(this, "m_szBTMAC ： " + m_szBTMAC,
-				// Toast.LENGTH_SHORT);
-				// tst.show();
 
 				String m_szLongID = m_szImei + m_szDevIDShort + m_szAndroidID
 						+ m_szWLANMAC + m_szBTMAC;
@@ -393,18 +216,7 @@ public class StartActivity extends Activity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			System.out.println("json : " + object2.toString());
-//			tst = Toast.makeText(context, "json : " + object2.toString(),
-//					Toast.LENGTH_SHORT);
-//			tst.show();
-			// tst = Toast.makeText(this,
-			// "json : " + URLDecoder.decode(object2.toString()),
-			// Toast.LENGTH_SHORT);
-			// tst.show();
-//			tst = Toast.makeText(context,
-//					"json : " + URLEncoder.encode(object2.toString()),
-//					Toast.LENGTH_SHORT);
-//			tst.show();
+//			System.out.println("json : " + object2.toString());
 
 			// sendGet(this.getString(R.string.re_url),URLDecoder.decode(object2.toString()));
 			sendGet(context.getString(R.string.re_url),
